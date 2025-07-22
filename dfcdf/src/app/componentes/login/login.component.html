@@ -1,0 +1,55 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous"
+  />
+</head>
+
+<main>
+  <script src="js/carousel.js"></script>
+  <section class="section_main_img">
+    <app-carrosel></app-carrosel>
+  </section>
+  <section class="section_main">
+    <header class="header_img">
+      <img src="ford.png" alt="Logo Ford" />
+    </header>
+    <h1 class="boasvin_das">Boas-Vindas</h1>
+    <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+      <div class="form-center">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <img src="do-utilizador.png" alt="Ícone de usuário" />
+            </div>
+          </div>
+          <input
+            id="nomeInput"
+            type="text"
+            class="form-control"
+            placeholder="Insira seu nome"
+            formControlName="nome"
+          />
+        </div>
+
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <img src="trancar.png" alt="Ícone de senha" />
+            </div>
+          </div>
+          <input
+            id="passwordInput"
+            type="password"
+            class="form-control"
+            placeholder="Insira sua senha"
+            formControlName="senha"
+          />
+        </div>
+      </div>
+      <button type="submit" class="btn btn-login">Entrar</button>
+    </form>
+  </section>
+</main>

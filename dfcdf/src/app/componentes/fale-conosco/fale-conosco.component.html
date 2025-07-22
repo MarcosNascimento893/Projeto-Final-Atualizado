@@ -1,0 +1,71 @@
+<header>
+  <!-- Botão hambúrguer aparece só quando a sidebar está fechada -->
+  <button class="hamburger-btn" (click)="toggleSidebar()" *ngIf="!isSidebarOpen">☰</button>
+
+  <div #sidebarOverlay class="sidebar-overlay" (click)="closeSidebar()"></div>
+
+  <div #sidebar class="sidebar">
+    <div>
+      <div class="px-3 py-3 border-bottom">
+        <strong class="text-dark">
+          <img src="ford.png" alt="Logo Ford" class="img-ford-ajuste" />
+        </strong>
+      </div>
+
+      <a href="/home" class="menu-item">
+        Home <img src="casa.png" alt="Home" class="imagem_bootstrap" />
+      </a>
+      <a href="/dashboard" class="menu-item">
+        Dashboard <img src="painel-de-controle.png" alt="Dashboard" class="imagem_bootstrap" />
+      </a>
+      <a href="/comparacao" class="menu-item">
+        Comparação <img src="carro-sedan-na-frente.png" alt="Comparação" class="imagem_bootstrap" />
+      </a>
+      <a href="/fale_conosco" class="menu-item">
+        Feedback <img src="feedback-do-cliente.png" alt="Feedback" class="imagem_bootstrap" />
+      </a>
+    </div>
+
+    <div class="imagem_rede_socias">
+      <a href="https://www.youtube.com/fordbrasil" target="_blank"><img src="youtube.png" alt="YouTube" /></a>
+      <a href="http://www.instagram.com/fordbrasil/" target="_blank"><img src="instagram.png" alt="Instagram" /></a>
+      <a href="https://x.com/fordbrasil" target="_blank"><img src="twitter.png" alt="Twitter" /></a>
+      <a href="https://www.facebook.com/FordBrasil/?locale=pt_BR" target="_blank"><img src="facebook.png" alt="Facebook" /></a>
+      <a href="https://br.linkedin.com/company/ford-brasil" target="_blank"><img src="linkedin.png" alt="LinkedIn" /></a>
+    </div>
+  </div>
+
+  <div class="ajuste_fordi_img">
+    <img src="ford.png" alt="Ford Logo" />
+  </div>
+</header>
+
+<main>
+  <div class="card-container">
+    <div class="card" *ngFor="let card of cards">
+      <img class="card-img" [src]="card.imagem" alt="Imagem do Card" />
+      <div class="card-content">
+        <h3>{{ card.titulo }}</h3>
+        <p>{{ card.descricao }}</p>
+        <div class="card-links" *ngIf="card.temSeta">
+          <a *ngIf="card.link1"
+             [href]="card.link1"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="btn-link">
+            Saiba mais
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-content">
+    <p>Copyright © 2025 Ford Motor Company - Todos os direitos reservados</p>
+    <div class="logo">
+      <img src="ford-96.png" alt="Logo da Ford" />
+    </div>
+  </div>
+</footer>

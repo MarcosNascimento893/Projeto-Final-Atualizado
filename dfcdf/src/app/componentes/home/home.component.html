@@ -1,0 +1,43 @@
+<header>
+  <button class="hamburger-btn" (click)="toggleSidebar()" *ngIf="!isSidebarOpen">
+    ☰
+  </button>
+
+  <div #sidebarOverlay class="sidebar-overlay" (click)="closeSidebar()"></div>
+
+  <div #sidebar class="sidebar">
+    <div>
+      <div class="px-3 py-3 border-bottom">
+        <strong class="text-dark"><img src="ford.png" alt="" class="img-ford-ajuste"></strong>
+      </div>
+      <a href="/home" routerLinkActive="active" class="menu-item">
+        Home <img class="imagem_bootstrap" src="casa.png" alt="Imagem casa">
+      </a>
+      <a href ="/dashboard" class="menu-item">
+        Dashboard <img class="imagem_bootstrap" src="painel-de-controle.png" alt="Painel">
+      </a>
+      <a href ="/comparacao" class="menu-item">
+        Comparação <img class="imagem_bootstrap" src="carro-sedan-na-frente.png" alt="Carro Sedan">
+      </a>
+      <a href ="/fale_conosco" class="menu-item">
+        Feedback <img class="imagem_bootstrap" src="feedback-do-cliente.png" alt="Mensagem">
+      </a>
+    </div>
+
+    <div class="imagem_rede_socias">
+      <a href="https://www.youtube.com/fordbrasil" target="_blank"><img src="youtube.png" alt=""></a>
+      <a href="http://www.instagram.com/fordbrasil/" target="_blank"><img src="instagram.png" alt=""></a>
+      <a href="https://x.com/fordbrasil" target="_blank"><img src="twitter.png" alt=""></a>
+      <a href="https://www.facebook.com/FordBrasil/?locale=pt_BR" target="_blank"><img src="facebook.png" alt=""></a>
+      <a href="https://br.linkedin.com/company/ford-brasil" target="_blank"><img src="linkedin.png" alt=""></a>
+    </div>
+  </div>
+
+  <div class="ajuste_fordi_img">
+    <img src="ford.png" alt="">
+  </div>
+</header>
+
+  <main class="main_ordenado">
+      
+  </main>
