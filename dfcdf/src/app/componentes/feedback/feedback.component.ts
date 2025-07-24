@@ -22,9 +22,13 @@ export class FeedbackComponent {
     cpf: '',
     telefone: '',
     contato: '',
+    mensagem: '',
     concordaTermos: false,
     querNovidades: false
   };
+
+  mensagemSucesso: string = '';
+  mensagemErro: string = '';
 
   toggleSidebar(): void {
     const sidebarEl = this.sidebar.nativeElement;
@@ -46,20 +50,23 @@ export class FeedbackComponent {
   }
 
   enviar() {
-    const { nome, email, telefone, contato: contatoForma, concordaTermos } = this.contato;
+    const { nome, email, telefone, contato: contatoForma, mensagem, concordaTermos } = this.contato;
 
     if (
       nome.trim() &&
       email.trim() &&
-      telefone.trim() &&
+      telefone.toString().trim() &&
       contatoForma &&
+      mensagem.trim() &&
       concordaTermos
     ) {
-      alert(`Obrigado sr(a) ${nome}, os seus dados foram encaminhados com sucesso!`);
+      this.mensagemSucesso = `Obrigado sr(a) ${nome}, os seus dados foram encaminhados com sucesso!`;
+      this.mensagemErro = '';
       console.log('Dados enviados:', this.contato);
       this.limparFormulario();
     } else {
-      alert('Por favor, preencha todos os campos obrigatórios e concorde com os termos.');
+      this.mensagemErro = 'Por favor, preencha todos os campos obrigatórios e concorde com os termos.';
+      this.mensagemSucesso = '';
     }
   }
 
@@ -71,6 +78,7 @@ export class FeedbackComponent {
       cpf: '',
       telefone: '',
       contato: '',
+      mensagem: '',
       concordaTermos: false,
       querNovidades: false
     };

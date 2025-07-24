@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-const cors = require("cors")
+const cors = require("cors");
 
 const app = express();
 
@@ -12,8 +12,12 @@ app.use(express.static(path.join(__dirname)));
 
 app.post("/login", async (req, res) => {
     try {
-        
-        const { nome, senha } = req.body
+        // ✅ Log para depuração
+        console.log("REQ BODY:", req.body);
+
+        // Trim para evitar espaços extras
+        const nome = req.body.nome ? req.body.nome.trim() : "";
+        const senha = req.body.senha ? req.body.senha.trim() : "";
 
         if (!nome || !senha) {
             return res.status(400).json({
@@ -21,7 +25,7 @@ app.post("/login", async (req, res) => {
             });
         }
 
-        if (nome !==  "admin" || senha !== "123456") {
+        if (nome !== "admin" || senha !== "123456") {
             return res.status(401).json({
                 message: "O nome de usuário ou senha está incorreto ou não foi cadastrado!"
             });
@@ -89,7 +93,7 @@ app.get("/vehicles", (req, res) => {
 
 app.post("/vehicleData", (req, res) => {
     try {
-        const { vin } = req.body
+        const { vin } = req.body;
 
         switch (vin) {
             case "2FRHDUYS2Y63NHD22454":
@@ -158,13 +162,12 @@ app.post("/vehicleData", (req, res) => {
                 });
         }
 
-
     } catch (error) {
         return res.status(500).json({
             message: "Falha na comunicação com o servidor!"
         });
     }
-})
+});
 
 app.listen(3001, () => {
     console.log("API running on http://localhost:3001/");

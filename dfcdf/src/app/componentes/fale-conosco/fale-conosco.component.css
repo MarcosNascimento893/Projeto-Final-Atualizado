@@ -98,7 +98,7 @@
   height: 24px;
 }
 
-/* Footer e demais estilos seguem igual */
+
 
 
 @media (max-width: 768px) {
@@ -173,31 +173,6 @@
   background-color: #0d1d4d;
 }
 
-/* Footer */
-.footer {
-  background-color: #1a3375;
-  color: white;
-  padding: 20px 40px;
-}
-
-.footer-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  text-align: center;
-}
-
-.footer-content p {
-  flex: 1;
-  margin: 0;
-  font-size: 14px;
-}
-
-.footer-content .logo img {
-  height: 32px;
-  width: auto;
-}
 
 /* Redes sociais */
 .imagem_rede_socias {

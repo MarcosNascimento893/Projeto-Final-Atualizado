@@ -1,4 +1,3 @@
-/* Base */
 * {
   box-sizing: border-box;
   font-family: 'Arial', sans-serif;
@@ -20,7 +19,6 @@ h2, h3 {
   font-size: 20px;
 }
 
-/* Formulário */
 .fordform {
   display: block;
   width: 100%;
@@ -41,7 +39,6 @@ h2, h3 {
   border-color: #11325e;
 }
 
-/* Textarea estilo igual aos inputs */
 #igualando_form {
   width: 100%;
   max-width: 310px;
@@ -63,7 +60,6 @@ h2, h3 {
   border-color: #11325e;
 }
 
-/* Checkbox labels */
 .ajuste_a {
   font-size: 13px;
   color: #333;
@@ -73,7 +69,6 @@ h2, h3 {
   margin: 0 auto;
 }
 
-/* Termos */
 .termos_comparacao {
   font-size: 12px;
   color: #555;
@@ -87,7 +82,6 @@ h2, h3 {
   font-weight: 600;
 }
 
-/* Botão enviar */
 .compare-button {
   display: flex;
   justify-content: center;
@@ -113,7 +107,6 @@ h2, h3 {
   transform: scale(1.03);
 }
 
-/* Formulário + Imagem */
 .form-image-container {
   display: flex;
   align-items: center;
@@ -141,8 +134,6 @@ h2, h3 {
   border: 4px solid #1a3375;
 }
 
-
-/* Form-box */
 .form-box {
   background-color: #ffffff;
   padding: 30px;
@@ -152,7 +143,6 @@ h2, h3 {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
 }
 
-/* Sidebar e menu */
 .hamburger-btn {
   position: fixed;
   top: 15px;
@@ -216,7 +206,6 @@ h2, h3 {
   height: 22px;
 }
 
-/* Logo da Ford fixo */
 .ajuste_fordi_img {
   position: fixed;
   top: 10px;
@@ -229,7 +218,6 @@ h2, h3 {
   height: auto;
 }
 
-/* Redes sociais */
 .imagem_rede_socias {
   margin-top: 30px;
   display: flex;
@@ -242,34 +230,50 @@ h2, h3 {
   height: 28px;
 }
 
-/* Footer */
-.footer {
-  background-color: #1a3375;
-  color: white;
-  padding: 20px;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.footer-content p {
-  margin: 0;
+.msg-sucesso, .msg-erro {
+  margin-top: 15px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;
-  flex: 1;
+  max-width: 320px;
+  word-wrap: break-word;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
 }
 
-.footer-content .logo img {
-  height: 40px;
-  width: auto;
+.msg-sucesso {
+  background-color: #1a2f6f;
+  color: white;
+  border: 2px solid #15295b;
 }
 
-/* Responsividade */
+.msg-erro {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 2px solid #f5c6cb;
+}
+
+.mensagem-container {
+  max-width: 320px;
+  margin: 0 auto;
+  text-align: center;
+} 
+
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-content p,
+  .footer-content .logo {
+    text-align: center;
+    flex: unset;
+  }
+}
+
+
 @media (max-width: 768px) {
   .form-image-container {
     flex-direction: column;
@@ -285,11 +289,5 @@ h2, h3 {
 
   .mustang-image-container img {
     max-width: 100%;
-  }
-
-  .footer-content {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
   }
 }

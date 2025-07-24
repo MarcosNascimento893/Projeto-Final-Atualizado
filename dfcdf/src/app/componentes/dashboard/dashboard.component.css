@@ -79,30 +79,6 @@ body {
 }
 
 
-footer {
-  background-color: #1a3375;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.footer-content p {
-  margin: 0;
-  font-size: 14px;
-  flex: 1;
-}
-
-.footer-content .logo img {
-  height: 40px;
-  width: auto;
-}
 
 
 .ajustes-avisos {

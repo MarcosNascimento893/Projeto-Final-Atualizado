@@ -10,13 +10,20 @@ import {
 import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
 import { CarouselComponent } from '../carrosel/carrosel.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule, FormsModule, CommonModule, CarouselComponent],
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    FormsModule,
+    CommonModule,
+    CarouselComponent,
+    HttpClientModule, 
+  ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
   formLogin!: FormGroup;
@@ -35,15 +42,26 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    const { nome, senha } = this.formLogin.value;
+    if (this.formLogin.invalid) {
+      console.warn('Formulário inválido', this.formLogin.value);
+      return;
+    }
+
+   
+    const nome = this.formLogin.value.nome.trim();
+    const senha = this.formLogin.value.senha.trim();
+
+    console.log('Enviando login:', nome, senha);
+
     this.loginService.login(nome, senha).subscribe({
       next: (response) => {
+        console.log('Login bem-sucedido', response);
         this.router.navigate(['home']);
       },
       error: (error) => {
-        console.error('Login failed', error);
+        console.error('Erro no login:', error);
+        alert(error.error?.message || 'Erro ao fazer login.');
       },
     });
   }
 }
-

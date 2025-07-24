@@ -38,9 +38,7 @@
   </div>
 </header>
 
-
 <main>
-
   <div class="form-image-container">
     <div class="mustang-image-container">
       <img src="mustan8g.png" alt="Imagem Mustang" class="mustang-image">
@@ -56,12 +54,14 @@
         <input type="number" [(ngModel)]="contato.telefone" name="telefone" placeholder="TELEFONE*" class="fordform" required>
 
         <select [(ngModel)]="contato.contato" name="contato" class="fordform" required>
-          <option value="" disabled>COMO DESEJA SER CONTATADO</option>
+          <option value="" disabled selected>COMO DESEJA SER CONTATADO</option>
           <option value="TELEFONE">TELEFONE</option>
           <option value="E-MAIL">E-MAIL</option>
         </select>
-        <textarea placeholder="DIGITE O ASSUNTO QUE GOSTARIA DE FALAR" name="text_areaaa"  class="fordform" cols="30" rows="10" id="igualando_form"></textarea>
- 
+
+   
+        <textarea [(ngModel)]="contato.mensagem" name="mensagem" placeholder="DIGITE O ASSUNTO QUE GOSTARIA DE FALAR" class="fordform" cols="30" rows="10" id="igualando_form" required></textarea>
+
         <p class="termos_comparacao">
           Os dados serão mantidos em nossa base de dados, só enquanto <br>
           for desejado por você. A qualquer momento, será possível editar <br>
@@ -85,13 +85,19 @@
           <button type="submit" class="button_enviar">Enviar</button>
         </div>
 
-
-
-
+       <div class="mensagem-container">
+      <div *ngIf="mensagemSucesso" class="msg-sucesso">
+        {{ mensagemSucesso }}
+      </div>
+      <div *ngIf="mensagemErro" class="msg-erro">
+        {{ mensagemErro }}
+      </div>
+    </div>
       </form>
     </div>
   </div>
 </main>
+
 
   <footer class="footer">
   <div class="footer-content">
