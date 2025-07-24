@@ -20,7 +20,7 @@ export class FaleConoscoComponent {
   cards = [
     {
       titulo: 'Telefone - Central de Relacionamento com o Cliente',
-      descricao: 'A Central de Relacionamento Ford Motor Company está disponível de segunda a sexta-feira, das 7h30 às 20h pelo número 0800 703 3673.',
+      descricao: 'A Central de Relacionamento Ford Motor Company está disponível de segunda a sexta-feira, das 7h30 às 17h30 pelo número 0800 703 3673.',
       imagem: 'trabalho1.jpg',
       temSeta: false
     },
