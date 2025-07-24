@@ -1,30 +1,32 @@
 <body>
+  
 <header>
-  <!-- Botão hambúrguer aparece só quando a sidebar está fechada -->
-  <button class="hamburger-btn" (click)="toggleSidebar()" *ngIf="!isSidebarOpen">☰</button>
+  <button class="hamburger-btn" (click)="toggleSidebar()" *ngIf="!isSidebarOpen">
+    ☰
+  </button>
 
   <div #sidebarOverlay class="sidebar-overlay" (click)="closeSidebar()"></div>
 
   <div #sidebar class="sidebar">
     <div>
       <div class="px-3 py-3 border-bottom">
-        <strong class="text-dark">
-          <img src="ford.png" alt="Logo Ford" class="img-ford-ajuste" />
-        </strong>
+        <strong class="text-dark"><img src="ford.png" alt="" class="img-ford-ajuste"></strong>
       </div>
-
-      <a href="/home" class="menu-item">
-        Home <img src="casa.png" alt="Home" class="imagem_bootstrap" />
+      <a href="/home" routerLinkActive="active" class="menu-item">
+        Home <img class="imagem_bootstrap" src="casa.png" alt="Imagem casa">
       </a>
-      <a href="/dashboard" class="menu-item">
-        Dashboard <img src="painel-de-controle.png" alt="Dashboard" class="imagem_bootstrap" />
+      <a href ="/dashboard" class="menu-item">
+        Dashboard <img class="imagem_bootstrap" src="painel-de-controle.png" alt="Painel">
       </a>
-      <a href="/comparacao" class="menu-item">
-        Comparação <img src="carro-sedan-na-frente.png" alt="Comparação" class="imagem_bootstrap" />
+      <a href ="/comparacao" class="menu-item">
+        Comparação <img class="imagem_bootstrap" src="carro-sedan-na-frente.png" alt="Carro Sedan">
       </a>
-      <a href="/fale_conosco" class="menu-item">
-        Feedback <img src="feedback-do-cliente.png" alt="Feedback" class="imagem_bootstrap" />
+      <a href ="/fale_conosco" class="menu-item">
+        Feedback <img class="imagem_bootstrap" src="feedback-do-cliente.png" alt="Mensagem">
       </a>
+     <a (click)="logout()" class="menu-item">
+         Logout <img src="logout.png" alt="Logout" class="imagem_bootstrap" />
+    </a>
     </div>
 
     <div class="imagem_rede_socias">

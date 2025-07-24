@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router'; // IMPORTANTE
 
 @Component({
   selector: 'app-feedback',
@@ -29,6 +30,8 @@ export class FeedbackComponent {
 
   mensagemSucesso: string = '';
   mensagemErro: string = '';
+
+  constructor(private router: Router) {} // Injeção do Router
 
   toggleSidebar(): void {
     const sidebarEl = this.sidebar.nativeElement;
@@ -82,5 +85,10 @@ export class FeedbackComponent {
       concordaTermos: false,
       querNovidades: false
     };
+  }
+
+  logout(): void {
+    localStorage.clear(); 
+    this.router.navigate(['/login'], { replaceUrl: true }); 
   }
 }

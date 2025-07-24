@@ -243,6 +243,11 @@ footer {
 .img-ford-ajuste{
   width: 100%;
 }
+.logout-btn {
+  margin-top: 10px;
+  width: 90%;
+}
+
 
 /* Responsividade */
 @media (max-width: 768px) {

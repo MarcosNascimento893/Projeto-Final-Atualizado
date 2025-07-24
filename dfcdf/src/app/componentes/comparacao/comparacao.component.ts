@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router'; 
 
 interface Vehicle {
   nome: string;
@@ -112,6 +113,8 @@ export class ComparacaoComponent {
 
   compareList: Vehicle[] = [];
 
+  constructor(private router: Router) {} 
+
   toggleSidebar(): void {
     const sidebarEl = this.sidebar.nativeElement;
     const overlayEl = this.overlay.nativeElement;
@@ -130,26 +133,32 @@ export class ComparacaoComponent {
 
   toggleCompare(vehicle: Vehicle, event: Event): void {
     const checkbox = event.target as HTMLInputElement;
-    
-    // Se o veículo já está na lista, removemos
+
+ 
     const index = this.compareList.findIndex(v => v.nome === vehicle.nome);
     if (index !== -1) {
       this.compareList.splice(index, 1);
       return;
     }
-    
-    // Se tentar adicionar mais de 2 veículos, prevenimos e desmarcamos o checkbox
+
+
     if (this.compareList.length >= 2) {
       checkbox.checked = false;
       alert('Você só pode comparar dois carros ao mesmo tempo.');
       return;
     }
-    
-    // Adiciona o veículo à lista
+
+  
     this.compareList.push(vehicle);
   }
 
   isInCompare(vehicle: Vehicle): boolean {
     return this.compareList.some(v => v.nome === vehicle.nome);
+  }
+
+
+  logout(): void {
+    localStorage.clear();
+    this.router.navigate(['/login'], { replaceUrl: true });
   }
 }

@@ -4,6 +4,7 @@ import { Veiculo, VeiculoData } from '../../models/veiculo.model';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { catchError, of } from 'rxjs';
 import { DashboardService } from '../../services/dashboard.service';
+import { Router } from '@angular/router'; // ✅ Importado
 
 @Component({
   standalone: true,
@@ -13,7 +14,6 @@ import { DashboardService } from '../../services/dashboard.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
   vehicles: Veiculo[] = [];
   selectedVehicle!: Veiculo;
   vehicleData!: VeiculoData;
@@ -32,7 +32,10 @@ export class DashboardComponent implements OnInit {
   @ViewChild('sidebar') sidebar!: ElementRef<HTMLDivElement>;
   @ViewChild('sidebarOverlay') overlay!: ElementRef<HTMLDivElement>;
 
-  constructor(private dashboardService: DashboardService) {}
+  constructor(
+    private dashboardService: DashboardService,
+    private router: Router // ✅ Injetado
+  ) {}
 
   ngOnInit(): void {
     this.dashboardService.getVehicles().subscribe((res) => {
@@ -93,5 +96,11 @@ export class DashboardComponent implements OnInit {
     this.overlay.nativeElement.style.display = 'none';
     document.body.classList.remove('offcanvas-open');
     this.isSidebarOpen = false;
+  }
+
+ 
+  logout(): void {
+    localStorage.clear(); // ou sessionStorage.clear()
+    this.router.navigate(['/login'], { replaceUrl: true }); // Evita voltar com o botão "voltar"
   }
 }

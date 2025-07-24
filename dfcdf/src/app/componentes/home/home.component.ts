@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router'; // <-- IMPORTANTE
 
 @Component({
   selector: 'app-home',
@@ -13,6 +14,8 @@ export class HomeComponent {
 
   @ViewChild('sidebar') sidebar!: ElementRef<HTMLDivElement>;
   @ViewChild('sidebarOverlay') overlay!: ElementRef<HTMLDivElement>;
+
+  constructor(private router: Router) {}
 
   toggleSidebar(): void {
     const sidebarEl = this.sidebar.nativeElement;
@@ -29,5 +32,10 @@ export class HomeComponent {
     this.overlay.nativeElement.style.display = 'none';
     document.body.classList.remove('offcanvas-open');
     this.isSidebarOpen = false;
+  }
+
+  logout(): void {
+    localStorage.clear();
+    this.router.navigate(['/login'], { replaceUrl: true });
   }
 }

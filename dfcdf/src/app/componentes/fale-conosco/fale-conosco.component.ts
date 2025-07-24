@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router'; // ✅ IMPORTANTE
 
 @Component({
   selector: 'app-fale-conosco',
@@ -13,6 +14,8 @@ export class FaleConoscoComponent {
   @ViewChild('sidebarOverlay') overlay!: ElementRef<HTMLDivElement>;
 
   isSidebarOpen: boolean = false;
+
+  constructor(private router: Router) {} // ✅ INJETANDO Router
 
   cards = [
     {
@@ -59,5 +62,10 @@ export class FaleConoscoComponent {
     this.overlay.nativeElement.style.display = 'none';
     document.body.classList.remove('offcanvas-open');
     this.isSidebarOpen = false;
+  }
+
+  logout(): void {
+    localStorage.clear(); // limpa token/sessão
+    this.router.navigate(['/login'], { replaceUrl: true }); // impede voltar com seta
   }
 }
