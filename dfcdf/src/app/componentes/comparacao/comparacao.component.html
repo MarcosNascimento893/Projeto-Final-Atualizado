@@ -1,4 +1,7 @@
-<header>
+ <body>
+  
+ 
+ <header>
   <button class="hamburger-btn" (click)="toggleSidebar()" *ngIf="!isSidebarOpen">
     ☰
   </button>
@@ -10,16 +13,16 @@
       <div class="px-3 py-3 border-bottom">
         <strong class="text-dark"><img src="ford.png" alt="" class="img-ford-ajuste"></strong>
       </div>
-      <a href ="/home" routerLinkActive="active" class="menu-item">
+      <a href="/home" routerLinkActive="active" class="menu-item">
         Home <img class="imagem_bootstrap" src="casa.png" alt="Imagem casa">
       </a>
-      <a href ="/dashboard" class="menu-item">
+      <a href="/dashboard" class="menu-item">
         Dashboard <img class="imagem_bootstrap" src="painel-de-controle.png" alt="Painel">
       </a>
-      <a href ="/comparacao" class="menu-item">
+      <a href="/comparacao" class="menu-item">
         Comparação <img class="imagem_bootstrap" src="carro-sedan-na-frente.png" alt="Carro Sedan">
       </a>
-      <a href ="/fale_conosco" class="menu-item">
+      <a href="/fale_conosco" class="menu-item">
         Feedback <img class="imagem_bootstrap" src="feedback-do-cliente.png" alt="Mensagem">
       </a>
     </div>
@@ -39,120 +42,121 @@
 </header>
 
 <main>
-
-<div>
-  <iframe
-  style="position: relative; margin-top: 70px; margin-left: 100px;"
-  width="90%"
-  height="700px"
-  src="https://www.youtube.com/embed/6W2vBlJwTns?controls=0&autoplay=1&loop=1&playlist=6W2vBlJwTns"
-  title="60 anos de Mustang | Autódromo de Interlagos – São Paulo"
-  frameborder="0"
-  allow=""
-  referrerpolicy="strict-origin-when-cross-origin"
-  allowfullscreen>
-</iframe>
-
-</div>
-
-<ul class="modelcars">
-  <li *ngFor="let vehicle of vehicles">
-    <img [src]="vehicle.image" class="photocar">
-    <div class="infocar">
-      <div>
-        <input type="checkbox"
-               [checked]="isInCompare(vehicle)"
-               (change)="toggleCompare(vehicle)">
-      </div>
-      <div class="info">
-        <span class="textmodel">{{vehicle.nome}}</span>
-        <span class="textprice">Preço Sugerido: R$ {{vehicle.preco | number}}</span>
-      </div>
-      <div>
-        <img src="botao-de-informacoes.png">
-      </div>
-    </div>
-  </li>
-</ul>
-
-<div style="text-align: center;padding-bottom: 20px;">
-  <button type="button" class="compare-button"
-          [disabled]="compareList.length !== 2"
-          (click)="showCompare = true">Comparar Carros</button>
-</div>
-
-<div class="overlay" *ngIf="showCompare"></div>
-<div id="compare" *ngIf="showCompare">
-  <table>
-    <tbody>
-      <tr>
-        <td>&nbsp;</td>
-        <td><img [src]="compareList[0].image" width="150"></td>
-        <td><img [src]="compareList[1].image" width="150"></td>
-      </tr>
-      <tr>
-        <td>Modelo</td>
-        <td>{{compareList[0].nome}}</td>
-        <td>{{compareList[1].nome}}</td>
-      </tr>
-      <tr>
-        <td>Altura da caçamba (mm)</td>
-        <td>{{compareList[0].alturaCacamba}}</td>
-        <td>{{compareList[1].alturaCacamba}}</td>
-      </tr>
-      <tr>
-        <td>Altura do veículo (mm)</td>
-        <td>{{compareList[0].alturaVeiculo}}</td>
-        <td>{{compareList[1].alturaVeiculo}}</td>
-      </tr>
-      <tr>
-        <td>Altura livre do solo (mm)</td>
-        <td>{{compareList[0].alturaSolo}}</td>
-        <td>{{compareList[1].alturaSolo}}</td>
-      </tr>
-      <tr>
-        <td>Capacidade de carga (Kg)</td>
-        <td>{{compareList[0].capacidadeCarga}}</td>
-        <td>{{compareList[1].capacidadeCarga}}</td>
-      </tr>
-      <tr>
-        <td>Motor</td>
-        <td>{{compareList[0].motor}}</td>
-        <td>{{compareList[1].motor}}</td>
-      </tr>
-      <tr>
-        <td>Potência (cv)</td>
-        <td>{{compareList[0].potencia}}</td>
-        <td>{{compareList[1].potencia}}</td>
-      </tr>
-      <tr>
-        <td>Volume de caçamba (L)</td>
-        <td>{{compareList[0].volumeCacamba}}</td>
-        <td>{{compareList[1].volumeCacamba}}</td>
-      </tr>
-      <tr>
-        <td>Roda</td>
-        <td>{{compareList[0].roda}}</td>
-        <td>{{compareList[1].roda}}</td>
-      </tr>
-      <tr>
-        <td>Preço</td>
-        <td>R$ {{compareList[0].preco | number}}</td>
-        <td>R$ {{compareList[1].preco | number}}</td>
-      </tr>
-    </tbody>
-  </table>
-  <div style="text-align: center;padding-bottom: 20px;">
-    <button type="button" class="compare-button" (click)="showCompare = false">Fechar</button>
+  <div>
+    <iframe
+      style="position: relative; margin-top: 70px; margin-left: 100px;"
+      width="90%"
+      height="700px"
+      src="https://www.youtube.com/embed/6W2vBlJwTns?controls=0&autoplay=1&loop=1&playlist=6W2vBlJwTns"
+      title="60 anos de Mustang | Autódromo de Interlagos – São Paulo"
+      frameborder="0"
+      allow=""
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
+    </iframe>
   </div>
-</div>
+
+  <ul class="modelcars">
+    <li *ngFor="let vehicle of vehicles">
+      <img [src]="vehicle.image" class="photocar">
+      <div class="infocar">
+        <div>
+          <input type="checkbox"
+                 [checked]="isInCompare(vehicle)"
+                 (change)="toggleCompare(vehicle, $event)">
+        </div>
+        <div class="info">
+          <span class="textmodel">{{vehicle.nome}}</span>
+          <span class="textprice">Preço Sugerido: R$ {{vehicle.preco | number}}</span>
+        </div>
+        <div>
+          <img src="botao-de-informacoes.png">
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <div style="text-align: center;padding-bottom: 20px;">
+    <button type="button" class="compare-button"
+            [disabled]="compareList.length !== 2"
+            (click)="showCompare = true">Comparar Carros</button>
+  </div>
+
+  <div class="overlay" *ngIf="showCompare"></div>
+  <div id="compare" *ngIf="showCompare">
+    <table>
+      <tbody>
+        <tr>
+          <td>&nbsp;</td>
+          <td><img [src]="compareList[0].image" width="150"></td>
+          <td><img [src]="compareList[1].image" width="150"></td>
+        </tr>
+        <tr>
+          <td>Modelo</td>
+          <td>{{compareList[0].nome}}</td>
+          <td>{{compareList[1].nome}}</td>
+        </tr>
+        <tr>
+          <td>Altura da caçamba (mm)</td>
+          <td>{{compareList[0].alturaCacamba}}</td>
+          <td>{{compareList[1].alturaCacamba}}</td>
+        </tr>
+        <tr>
+          <td>Altura do veículo (mm)</td>
+          <td>{{compareList[0].alturaVeiculo}}</td>
+          <td>{{compareList[1].alturaVeiculo}}</td>
+        </tr>
+        <tr>
+          <td>Altura livre do solo (mm)</td>
+          <td>{{compareList[0].alturaSolo}}</td>
+          <td>{{compareList[1].alturaSolo}}</td>
+        </tr>
+        <tr>
+          <td>Capacidade de carga (Kg)</td>
+          <td>{{compareList[0].capacidadeCarga}}</td>
+          <td>{{compareList[1].capacidadeCarga}}</td>
+        </tr>
+        <tr>
+          <td>Motor</td>
+          <td>{{compareList[0].motor}}</td>
+          <td>{{compareList[1].motor}}</td>
+        </tr>
+        <tr>
+          <td>Potência (cv)</td>
+          <td>{{compareList[0].potencia}}</td>
+          <td>{{compareList[1].potencia}}</td>
+        </tr>
+        <tr>
+          <td>Volume de caçamba (L)</td>
+          <td>{{compareList[0].volumeCacamba}}</td>
+          <td>{{compareList[1].volumeCacamba}}</td>
+        </tr>
+        <tr>
+          <td>Roda</td>
+          <td>{{compareList[0].roda}}</td>
+          <td>{{compareList[1].roda}}</td>
+        </tr>
+        <tr>
+          <td>Preço</td>
+          <td>R$ {{compareList[0].preco | number}}</td>
+          <td>R$ {{compareList[1].preco | number}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="text-align: center;padding-bottom: 20px;">
+      <button type="button" class="compare-button" (click)="showCompare = false">Fechar</button>
+    </div>
+  </div>
 </main>
 
- <footer class="footer">
-  <div class="footer-content">
-    <p>Copyright © 2025 Ford Motor Company - Todos os direitos reservados</p>
-    <div class="logo">
-      <img src="ford-96.png" alt="Logo da Ford" />
+ <footer>
+    <div class="footer-content">
+      <p>Copyright © 2025 Ford Motor Company - Todos os direitos reservados</p>
+      <div class="logo">
+        <img src="ford-96.png" alt="Logo da Ford">
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
+
+  
+</body>

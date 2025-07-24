@@ -17,5 +17,5 @@ export const routes: Routes = [
   { path: 'comparacao', component: ComparacaoComponent },
   { path: 'feedback', component: FeedbackComponent },
   { path: 'fale_conosco', component: FaleConoscoComponent},
-  { path: 'carrosel-home', component: CarroselHomeComponentComponent},
+  { path: 'carrosel-home', component: CarroselHomeComponent},
 ];

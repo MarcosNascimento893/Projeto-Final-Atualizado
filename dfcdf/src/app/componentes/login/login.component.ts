@@ -27,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
   formLogin!: FormGroup;
+  showPassword = false;
 
   constructor(
     private fb: FormBuilder,
@@ -41,13 +42,16 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+
   onSubmit() {
     if (this.formLogin.invalid) {
       console.warn('Formulário inválido', this.formLogin.value);
       return;
     }
 
-   
     const nome = this.formLogin.value.nome.trim();
     const senha = this.formLogin.value.senha.trim();
 

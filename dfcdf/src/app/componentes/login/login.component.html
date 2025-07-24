@@ -42,11 +42,16 @@
           </div>
           <input
             id="passwordInput"
-            type="password"
+            [type]="showPassword ? 'text' : 'password'"
             class="form-control"
             placeholder="Insira sua senha"
             formControlName="senha"
           />
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" (click)="togglePasswordVisibility()">
+              <img src="olho.png" alt="Mostrar senha" width="15" />
+            </button>
+          </div>
         </div>
       </div>
       <button type="submit" class="btn btn-login">Entrar</button>

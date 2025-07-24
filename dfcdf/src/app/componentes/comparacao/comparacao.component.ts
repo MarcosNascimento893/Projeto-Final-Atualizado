@@ -27,6 +27,7 @@ export class ComparacaoComponent {
   @ViewChild('sidebarOverlay') overlay!: ElementRef<HTMLDivElement>;
 
   isSidebarOpen: boolean = false;
+  showCompare = false;
 
   vehicles: Vehicle[] = [
     {
@@ -110,7 +111,6 @@ export class ComparacaoComponent {
   ];
 
   compareList: Vehicle[] = [];
-  showCompare = false;
 
   toggleSidebar(): void {
     const sidebarEl = this.sidebar.nativeElement;
@@ -118,7 +118,6 @@ export class ComparacaoComponent {
 
     this.isSidebarOpen = sidebarEl.classList.toggle('active');
     overlayEl.style.display = this.isSidebarOpen ? 'block' : 'none';
-
     document.body.classList.toggle('offcanvas-open', this.isSidebarOpen);
   }
 
@@ -129,18 +128,25 @@ export class ComparacaoComponent {
     this.isSidebarOpen = false;
   }
 
-  toggleCompare(vehicle: Vehicle): void {
-    if (this.compareList.length >= 2 && !this.isInCompare(vehicle)) {
+  toggleCompare(vehicle: Vehicle, event: Event): void {
+    const checkbox = event.target as HTMLInputElement;
+    
+    // Se o veículo já está na lista, removemos
+    const index = this.compareList.findIndex(v => v.nome === vehicle.nome);
+    if (index !== -1) {
+      this.compareList.splice(index, 1);
+      return;
+    }
+    
+    // Se tentar adicionar mais de 2 veículos, prevenimos e desmarcamos o checkbox
+    if (this.compareList.length >= 2) {
+      checkbox.checked = false;
       alert('Você só pode comparar dois carros ao mesmo tempo.');
       return;
     }
-
-    const index = this.compareList.findIndex(v => v.nome === vehicle.nome);
-    if (index === -1) {
-      this.compareList.push(vehicle);
-    } else {
-      this.compareList.splice(index, 1);
-    }
+    
+    // Adiciona o veículo à lista
+    this.compareList.push(vehicle);
   }
 
   isInCompare(vehicle: Vehicle): boolean {

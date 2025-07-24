@@ -198,31 +198,47 @@ body {
 }
 
 /* Footer */
+/* Estrutura principal */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+main {
+  flex: 1;
+  padding-bottom: 40px; /* Espaço extra antes do footer */
+}
+
+/* Footer definitivo */
 footer {
   background-color: #1a3375;
   color: white;
-  padding: 20px;
-  text-align: center;
+  padding: 25px 0; /* Aumentei o padding vertical */
+  margin-top: 40px; /* Espaço acima do footer */
 }
 
 .footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  padding: 0 20px;
 }
 
 .footer-content p {
   margin: 0;
   font-size: 14px;
-  flex: 1;
+  line-height: 1.5; /* Melhora o espaçamento do texto */
 }
 
 .footer-content .logo img {
   height: 40px;
   width: auto;
+  margin-left: 20px; /* Espaço entre texto e logo */
 }
-
 /**/
 .img-ford-ajuste{
   width: 100%;

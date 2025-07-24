@@ -1,3 +1,4 @@
+<body>
 <header>
   <!-- Botão hambúrguer aparece só quando a sidebar está fechada -->
   <button class="hamburger-btn" (click)="toggleSidebar()" *ngIf="!isSidebarOpen">☰</button>
@@ -60,12 +61,15 @@
     </div>
   </div>
 </main>
-
-<footer class="footer">
-  <div class="footer-content">
-    <p>Copyright © 2025 Ford Motor Company - Todos os direitos reservados</p>
-    <div class="logo">
-      <img src="ford-96.png" alt="Logo da Ford" />
+  
+  <footer>
+    <div class="footer-content">
+      <p>Copyright © 2025 Ford Motor Company - Todos os direitos reservados</p>
+      <div class="logo">
+        <img src="ford-96.png" alt="Logo da Ford">
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
+
+  
+</body>

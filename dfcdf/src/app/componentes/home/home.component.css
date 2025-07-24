@@ -24,3 +24,19 @@ main{
   display: block;
   margin-bottom: 10px;
 }
+.main_ordenado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-height: 200px;
+}
+
+.main_ordenado img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
