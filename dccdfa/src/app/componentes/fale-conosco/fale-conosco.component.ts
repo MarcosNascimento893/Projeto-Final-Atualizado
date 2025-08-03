@@ -15,7 +15,7 @@ export class FaleConoscoComponent {
 
   isSidebarOpen: boolean = false;
 
-  constructor(private router: Router) {} // ✅ INJETANDO Router
+  constructor(private router: Router) {} 
 
   cards = [
     {

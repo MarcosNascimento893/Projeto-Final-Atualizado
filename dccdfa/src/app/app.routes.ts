@@ -10,7 +10,7 @@ import { CarroselHomeComponent } from './componentes/carrosel-home/carrosel-home
 
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'carrosel-home', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },

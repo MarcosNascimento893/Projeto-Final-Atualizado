@@ -14,8 +14,8 @@ interface CarouselItem {
 export class CarroselHomeComponent implements OnInit, OnDestroy {
   carouselArr: CarouselItem[] = [
     { img: 'shelbyford.jpg', text: '', link: '' },
-    { img: 'broncostroppe.jpg', text: '', link: '' },
-    { img: 'Ford_Mustang_2025.jpg', text: '', link: '' }
+    { img: 'broncotroppe.jpg', text: '', link: '' },
+ 
   ];
 
   currentIndex = 0;
