@@ -1,1 +1,41 @@
-<div id="carosuell" class="text-cennter"> <img [src]="'' + currentItem.img" alt="" class="section_main_img"> </div>
+<header>
+  <button class="hamburger-btn" (click)="toggleSidebar()" *ngIf="!isSidebarOpen">
+    ☰
+  </button>
+
+  <div #sidebarOverlay class="sidebar-overlay" (click)="closeSidebar()"></div>
+
+  <div #sidebar class="sidebar">
+    <div>
+      <div class="px-3 py-3 border-bottom">
+        <strong class="text-dark"><img src="ford.png" alt="" class="img-ford-ajuste"></strong>
+      </div>
+      
+     <a href="/login" class="menu-item">
+         Login <img src="avatar.png" alt="Logout" class="imagem_bootstrap" />
+    </a>
+    </div>
+
+    <div class="imagem_rede_socias">
+      <a href="https://www.youtube.com/fordbrasil" target="_blank"><img src="youtube.png" alt="YouTube" /></a>
+      <a href="http://www.instagram.com/fordbrasil/" target="_blank"><img src="instagram.png" alt="Instagram" /></a>
+      <a href="https://x.com/fordbrasil" target="_blank"><img src="twitter.png" alt="Twitter" /></a>
+      <a href="https://www.facebook.com/FordBrasil/?locale=pt_BR" target="_blank"><img src="facebook.png" alt="Facebook" /></a>
+      <a href="https://br.linkedin.com/company/ford-brasil" target="_blank"><img src="linkedin.png" alt="LinkedIn" /></a>
+    </div>
+  </div>
+
+  <div class="ajuste_fordi_img">
+    <img src="ford.png" alt="Ford Logo" />
+  </div>
+</header>
+
+<div id="carosell">
+  <ng-container *ngIf="currentItem.type === 'image'; else videoTemplate">
+    <img [src]="currentItem.src" alt="" class="section_main_img" />
+  </ng-container>
+
+  <ng-template #videoTemplate>
+    <video [src]="currentItem.src" autoplay muted loop class="section_main_img"></video>
+  </ng-template>
+</div>
